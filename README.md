@@ -95,32 +95,6 @@ Schemas consultados (repositório oficial Microsoft `json-schemas`, branch `main
 - [Dashboard design guidance](https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards-design-tips)
 - [Accessibility guidance](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-creating-reports)
 
-## Limitações verificadas
-
-- O Power BI Desktop 2.159 abriu o projeto após as correções PBIR e de cultura dos
-  CSVs; os KPIs passaram a exibir valores financeiros coerentes. A validação
-  automatizada não substitui a conferência visual e interativa de cada página após
-  a regeneração do projeto.
-- O Desktop pode alterar arquivos do relatório ao salvar. Feche o relatório antes
-  de executar `gerar_projeto.py` e reabra o PBIP para aplicar o tema e layout gerados.
-- O Power BI Desktop 2.159 rejeitou `description:` em medidas TMDL com erro de
-  propriedade não suportada. Por isso, os textos das medidas estão preservados
-  como comentários TMDL, não como metadados de descrição.
-- Não há um schema JSON oficial para validar gramática TMDL; `validar.py` faz
-  verificações estruturais e semânticas simples, mas a aceitação final do TMDL deve
-  ser confirmada ao aplicar alterações no Power BI Desktop.
-- O Top 10 usa medidas de faturamento e ticket médio combinadas com `Ranking Cliente`;
-  confirme a lista de dez linhas após atualizar o modelo no Desktop.
-- O Desktop grava os visuais em PBIR 2.14.0, mas não foi encontrado schema oficial
-  publicado para essa versão. O validador normaliza somente a cópia em memória para
-  verificar compatibilidade estrutural com o schema oficial 2.13.0; os arquivos do
-  projeto mantêm a versão 2.14.0 declarada pelo Desktop.
-- O drill-through e a associação de tooltip estão definidos em PBIR, mas o
-  comportamento interativo final depende de confirmação no Desktop.
-- O tema define preenchimento e texto explicitamente para `default`, `hover`,
-  `selected` e `disabled` no page navigator, além de fundo claro, cartões brancos,
-  eixos sem unidades abreviadas e cantos arredondados. A renderização desses estados
-  deve ser conferida no Desktop.
 - O semáforo é textual ("Acima da meta", "Atenção", "Abaixo da meta") para não
   depender apenas de cor; o comportamento de formatação condicional por valor não
   foi aplicado.
