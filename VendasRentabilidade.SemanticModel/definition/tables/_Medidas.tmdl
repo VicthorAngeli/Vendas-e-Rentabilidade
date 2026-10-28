@@ -1,0 +1,181 @@
+table _Medidas
+	isHidden
+	lineageTag: 9f5adff3-15c2-483a-ab38-c7b3178f635b
+
+	/// Receita líquida dos itens entregues, após descontos.
+	measure Faturamento = SUMX(FILTER(fato_vendas, fato_vendas[status] = "Entregue"), fato_vendas[quantidade] * fato_vendas[preco_unitario] * (1 - fato_vendas[desconto_pct]))
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Faturamento
+		lineageTag: 7b9a2b9e-1067-4e59-8f28-2d7df496d51f
+
+	/// Valor de descontos concedidos em itens entregues.
+	measure Descontos = SUMX(FILTER(fato_vendas, fato_vendas[status] = "Entregue"), fato_vendas[quantidade] * fato_vendas[preco_unitario] * fato_vendas[desconto_pct])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Descontos
+		lineageTag: 82f476ab-a120-416d-8422-31e993c05158
+
+	/// Custo dos produtos efetivamente entregues.
+	measure Custo = SUMX(FILTER(fato_vendas, fato_vendas[status] = "Entregue"), fato_vendas[quantidade] * fato_vendas[custo_unitario])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Custo
+		lineageTag: ce11a45d-31d3-4c06-baea-b89ad58989be
+
+	/// Faturamento líquido menos custo dos itens entregues.
+	measure Lucro = [Faturamento] - [Custo]
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Lucro
+		lineageTag: e3f313f9-40c6-44e4-b8e6-012e4df07caf
+
+	/// Lucro dividido pelo faturamento líquido.
+	measure 'Margem %' = DIVIDE([Lucro], [Faturamento])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Margem %
+		lineageTag: 96c855c2-7816-4b67-9367-42cfb9a6ef65
+
+	/// Quantidade de pedidos com itens entregues.
+	measure Pedidos = CALCULATE(DISTINCTCOUNT(fato_vendas[id_pedido]), fato_vendas[status] = "Entregue")
+		formatString: #,##0
+		displayFolder: Pedidos
+		lineageTag: 4ddab8ab-2e3c-46b7-ac79-fda9c0859a1b
+
+	/// Faturamento líquido por pedido com itens entregues.
+	measure 'Ticket Médio' = DIVIDE([Faturamento], [Pedidos])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Ticket Médio
+		lineageTag: 597d7829-1b52-493b-92e1-23a0b633600b
+
+	/// Meta mensal dos vendedores no contexto de calendário.
+	measure Meta = CALCULATE(SUM(meta_mensal[valor_meta]), TREATAS(VALUES(dim_calendario[ano_mes_num]), meta_mensal[ano_mes_num]))
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Meta
+		lineageTag: 81104731-a66e-4058-a952-3bebdb6de9bc
+
+	/// Faturamento dividido pela meta do período.
+	measure 'Atingimento da Meta %' = DIVIDE([Faturamento], [Meta])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Meta
+		lineageTag: 1e6c3525-3eeb-490d-b694-53084378d6da
+
+	/// Faturamento acumulado desde o início do ano.
+	measure 'Faturamento YTD' = TOTALYTD([Faturamento], dim_calendario[data])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Faturamento
+		lineageTag: 7aef9b9c-51e6-4bb8-a9db-8d9cc53d20f9
+
+	/// Faturamento no mesmo período do ano anterior.
+	measure 'Faturamento mesmo período ano anterior' = CALCULATE([Faturamento], SAMEPERIODLASTYEAR(dim_calendario[data]))
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Faturamento
+		lineageTag: 7d5c8d77-f371-41b5-83a3-fd9475e6b8cf
+
+	/// Variação do ano mais recente no contexto em relação ao ano anterior, preservando outros filtros de calendário.
+	measure 'Crescimento YoY %' = VAR AnoAtual = MAX(dim_calendario[ano]) VAR Atual = CALCULATE([Faturamento], REMOVEFILTERS(dim_calendario[ano]), dim_calendario[ano] = AnoAtual) VAR Anterior = CALCULATE([Faturamento], REMOVEFILTERS(dim_calendario[ano]), dim_calendario[ano] = AnoAtual - 1) RETURN DIVIDE(Atual - Anterior, Anterior)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Faturamento
+		lineageTag: ccb3a411-8c31-48ca-bf16-c8139dcc2101
+
+	/// Proporção de linhas de venda canceladas.
+	measure 'Taxa de Cancelamento %' = DIVIDE(CALCULATE(COUNTROWS(fato_vendas), fato_vendas[status] = "Cancelado"), COUNTROWS(fato_vendas))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Pedidos
+		lineageTag: 744079ca-86cd-4662-826f-861838abcf3d
+
+	/// Proporção de linhas de venda devolvidas.
+	measure 'Taxa de Devolução %' = DIVIDE(CALCULATE(COUNTROWS(fato_vendas), fato_vendas[status] = "Devolvido"), COUNTROWS(fato_vendas))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Pedidos
+		lineageTag: 61da254d-ac29-453b-9d86-55d79494eaf7
+
+	/// Posição do vendedor por faturamento no contexto selecionado.
+	measure 'Ranking de Vendedor' = RANKX(ALLSELECTED(dim_vendedor[nome_vendedor]), [Faturamento], , DESC, Dense)
+		formatString: #,##0
+		displayFolder: Equipe Comercial
+		lineageTag: f236a6a9-3478-4bb4-9e18-3564a48bd132
+
+	/// Classe ABC do produto com base no faturamento acumulado.
+	measure 'Curva ABC de produtos' = VAR Atual = [Faturamento] VAR Acumulado = SUMX(FILTER(ALLSELECTED(dim_produto[id_produto]), [Faturamento] >= Atual), [Faturamento]) VAR Percentual = DIVIDE(Acumulado, CALCULATE([Faturamento], ALLSELECTED(dim_produto[id_produto]))) RETURN SWITCH(TRUE(), Percentual <= 0.80, "A", Percentual <= 0.95, "B", "C")
+		formatString: General
+		displayFolder: Produto
+		lineageTag: b673ceae-602e-497d-8487-8583726414d2
+
+	/// Faturamento acumulado até a data no contexto atual.
+	measure 'Faturamento acumulado' = VAR DataAtual = MAX(dim_calendario[data]) RETURN CALCULATE([Faturamento], FILTER(ALLSELECTED(dim_calendario[data]), dim_calendario[data] <= DataAtual))
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Faturamento
+		lineageTag: b1afdc52-f0dd-42c2-a485-13742ef11c75
+
+	/// Percentual acumulado de faturamento na ordem decrescente de produtos.
+	measure 'ABC Acumulada %' = VAR Atual = [Faturamento] VAR Acumulado = SUMX(FILTER(ALLSELECTED(dim_produto[id_produto]), [Faturamento] >= Atual), [Faturamento]) RETURN DIVIDE(Acumulado, CALCULATE([Faturamento], ALLSELECTED(dim_produto[id_produto])))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Produto
+		lineageTag: f4994274-912f-433f-abdd-6dee22bdcc9c
+
+	/// Preço médio ponderado por quantidade entregue.
+	measure 'Preço Médio' = DIVIDE(SUMX(FILTER(fato_vendas, fato_vendas[status] = "Entregue"), fato_vendas[quantidade] * fato_vendas[preco_unitario]), CALCULATE(SUM(fato_vendas[quantidade]), fato_vendas[status] = "Entregue"))
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Rentabilidade
+		lineageTag: b2392f52-0f8f-4bea-b2ac-e6bc60ea6f29
+
+	/// Margem percentual unitária média no contexto.
+	measure 'Margem Unitária %' = DIVIDE([Preço Médio] - DIVIDE([Custo], CALCULATE(SUM(fato_vendas[quantidade]), fato_vendas[status] = "Entregue")), [Preço Médio])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Rentabilidade
+		lineageTag: f861222a-49b3-49c5-913f-98c722e006ff
+
+	/// Posição do cliente por faturamento.
+	measure 'Ranking Cliente' = RANKX(ALLSELECTED(dim_cliente[id_cliente]), [Faturamento], , DESC, Dense)
+		formatString: #,##0
+		displayFolder: Clientes
+		lineageTag: 44247d7b-0622-480e-b4d6-88b3248cfa7c
+
+	/// Exibe faturamento apenas para os dez clientes mais bem ranqueados.
+	measure 'Faturamento Top 10 Clientes' = IF([Ranking Cliente] <= 10, [Faturamento])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Clientes
+		lineageTag: 022f7848-fc74-44ee-805d-cf72d23a0027
+
+	/// Exibe ticket médio apenas para os dez clientes mais bem ranqueados.
+	measure 'Ticket Médio Top 10 Clientes' = IF([Ranking Cliente] <= 10, [Ticket Médio])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Clientes
+		lineageTag: 9cc8f3fb-2286-4e31-bdde-0ad957f03f17
+
+	/// Status textual de atingimento para leitura acessível além da cor.
+	measure 'Indicador de Meta' = SWITCH(TRUE(), [Atingimento da Meta %] >= 1, "Acima da meta", [Atingimento da Meta %] >= 0.9, "Atenção", "Abaixo da meta")
+		formatString: General
+		displayFolder: Equipe Comercial
+		lineageTag: 601b95d0-f87a-41d7-ab7f-05d5a8661702
+
+	/// Valor calculado para cada etapa da cascata de rentabilidade.
+	measure 'Valor Etapa Cascata' = VAR Etapa = SELECTEDVALUE(dim_etapa_cascata[etapa]) RETURN SWITCH(Etapa, "Faturamento", [Faturamento], "Descontos", -[Descontos], "Custos", -[Custo], "Lucro", [Lucro])
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		displayFolder: Rentabilidade
+		lineageTag: 3f802cf7-9535-447a-8ba6-d8f93250ac3e
+
+	/// Texto dinâmico que resume a variação anual do faturamento.
+	measure 'Título Executivo' = "Faturamento " & IF([Crescimento YoY %] >= 0, "cresce ", "cai ") & FORMAT(ABS([Crescimento YoY %]), "0.0%") & " no período"
+		formatString: General
+		displayFolder: Auxiliares
+		lineageTag: ca39a320-09f2-45b2-9659-2084f8dd2ef2
+
+	/// Faturamento arredondado sem abreviações, formatado para os cartões executivos.
+	measure 'Faturamento Cartão' = FORMAT([Faturamento], "#,##0", "pt-BR")
+		formatString: General
+		displayFolder: Auxiliares
+		lineageTag: 75e29b0d-bc8a-4d15-98be-a200272c3a78
+
+	/// Lucro arredondado sem abreviações, formatado para os cartões executivos.
+	measure 'Lucro Cartão' = FORMAT([Lucro], "#,##0", "pt-BR")
+		formatString: General
+		displayFolder: Auxiliares
+		lineageTag: 31978807-ccac-490f-bc44-a1ace35acb6c
+
+	column Auxiliar
+		dataType: string
+		isHidden
+		lineageTag: dc0f9b96-463a-4bd6-aef5-46eb1828cd73
+		sourceColumn: Auxiliar
+
+	partition _Medidas = m
+		mode: import
+		source = #table({"Auxiliar"}, {})

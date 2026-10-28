@@ -1,0 +1,44 @@
+table meta_mensal
+	lineageTag: 13fe8aaf-a296-49d0-8632-47939929c1a4
+
+	column id_meta
+		dataType: int64
+		isHidden
+		lineageTag: 8d4f6805-469a-4c35-a8d5-8f0e67d696d4
+		sourceColumn: id_meta
+
+	column id_vendedor
+		dataType: int64
+		isHidden
+		lineageTag: 7ab9af0b-b2e9-428c-801d-0a90d1b11415
+		sourceColumn: id_vendedor
+
+	column data_mes
+		dataType: dateTime
+		lineageTag: 57352904-82a3-47c7-b473-b8b40f90ce9d
+		summarizeBy: none
+		sourceColumn: data_mes
+
+	column ano_mes_num
+		dataType: int64
+		isHidden
+		lineageTag: 056b8f54-3c5f-4e54-8bf2-7cd394471db7
+		sourceColumn: ano_mes_num
+
+	column valor_meta
+		dataType: double
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		lineageTag: 8e12a8d6-0a07-4dcc-aa47-8cc5b26a4a11
+		summarizeBy: none
+		sourceColumn: valor_meta
+
+	partition meta_mensal = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(PastaDados & "\meta_mensal.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"id_meta", Int64.Type}, {"id_vendedor", Int64.Type}, {"data_mes", type date}, {"ano_mes_num", Int64.Type}, {"valor_meta", type number}}, "en-US")
+				in
+				    ChangedTypes
+

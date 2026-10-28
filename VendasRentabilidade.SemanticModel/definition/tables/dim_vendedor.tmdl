@@ -1,0 +1,37 @@
+table dim_vendedor
+	lineageTag: 3bba39dc-9f20-4ea6-b727-a1d2f75fe881
+
+	column id_vendedor
+		dataType: int64
+		isHidden
+		lineageTag: e175ea3b-b9d2-44b5-b68c-3c0ffcf29e18
+		sourceColumn: id_vendedor
+
+	column nome_vendedor
+		dataType: string
+		lineageTag: b1410d3a-de26-4156-8fe0-4de1d5d1e5df
+		summarizeBy: none
+		sourceColumn: nome_vendedor
+
+	column equipe
+		dataType: string
+		lineageTag: bc9af723-5e9e-4899-8446-963a295c1359
+		summarizeBy: none
+		sourceColumn: equipe
+
+	column gerente
+		dataType: string
+		lineageTag: dece228d-bbb1-40fe-8041-4e33638ad29a
+		summarizeBy: none
+		sourceColumn: gerente
+
+	partition dim_vendedor = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(PastaDados & "\dim_vendedor.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"id_vendedor", Int64.Type}, {"nome_vendedor", type text}, {"equipe", type text}, {"gerente", type text}}, "en-US")
+				in
+				    ChangedTypes
+

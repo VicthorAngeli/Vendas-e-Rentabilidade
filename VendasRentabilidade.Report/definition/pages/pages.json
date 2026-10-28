@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "visao_executiva",
+    "vendas_produto",
+    "clientes",
+    "equipe_comercial",
+    "rentabilidade",
+    "detalhe_vendedor",
+    "tooltip_kpi"
+  ],
+  "activePageName": "visao_executiva"
+}

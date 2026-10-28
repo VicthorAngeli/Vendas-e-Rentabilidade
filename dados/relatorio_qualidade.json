@@ -1,0 +1,100 @@
+{
+  "gerado_em_utc": "2026-10-27T19:29:59.589380+00:00",
+  "metodo_deduplicacao": "chave primária (nunca nome_cliente)",
+  "tabelas": [
+    {
+      "tabela": "dim_cliente",
+      "linhas_entrada": 6000,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 6000,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "dim_produto",
+      "linhas_entrada": 240,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 240,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "dim_vendedor",
+      "linhas_entrada": 36,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 36,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "dim_regiao",
+      "linhas_entrada": 27,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 27,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "dim_calendario",
+      "linhas_entrada": 1461,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 1461,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "dim_etapa_cascata",
+      "linhas_entrada": 4,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 4,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "meta_mensal",
+      "linhas_entrada": 1728,
+      "duplicatas_por_chave_removidas": 0,
+      "linhas_removidas_por_chave_obrigatoria": 0,
+      "valores_nd_convertidos": 0,
+      "nulos_numericos_imputados": 0,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 1728,
+      "valores_corrigidos": 0
+    },
+    {
+      "tabela": "fato_vendas",
+      "linhas_entrada": 50075,
+      "duplicatas_por_chave_removidas": 107,
+      "linhas_removidas_por_chave_obrigatoria": 173,
+      "valores_nd_convertidos": 350,
+      "nulos_numericos_imputados": 295,
+      "nulos_textuais_corrigidos": 0,
+      "linhas_saida": 49795,
+      "valores_corrigidos": 645
+    }
+  ],
+  "observacoes": [
+    "ND e vazios em colunas numéricas são convertidos em nulos.",
+    "Valores numéricos não-chave ausentes são imputados pela mediana da coluna.",
+    "Linhas de fato com data/chaves ausentes ou referências inválidas são removidas.",
+    "Nomes semelhantes permanecem quando possuem chaves de cliente distintas."
+  ]
+}

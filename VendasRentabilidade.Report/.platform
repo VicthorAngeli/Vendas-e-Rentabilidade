@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "VendasRentabilidade"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "00529663-3df2-40a7-8def-0dac58bfc755"
+  }
+}

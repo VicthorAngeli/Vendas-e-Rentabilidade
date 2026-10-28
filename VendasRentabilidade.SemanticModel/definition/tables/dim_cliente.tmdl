@@ -1,0 +1,49 @@
+table dim_cliente
+	lineageTag: 96acf2fa-ef7c-4d3a-9cb9-2be55b57fd97
+
+	column id_cliente
+		dataType: int64
+		isHidden
+		lineageTag: d325ab35-5cef-4c1a-8415-e83a7fe21877
+		sourceColumn: id_cliente
+
+	column nome_cliente
+		dataType: string
+		lineageTag: 58c42827-e14c-4e21-b377-fb25cee5621b
+		summarizeBy: none
+		sourceColumn: nome_cliente
+
+	column segmento
+		dataType: string
+		lineageTag: b3e17e06-a5a5-4358-8f9a-d312bbe4a31c
+		summarizeBy: none
+		sourceColumn: segmento
+
+	column cidade
+		dataType: string
+		lineageTag: 521ed03d-f473-4611-97fd-9ff57c87af64
+		summarizeBy: none
+		sourceColumn: cidade
+
+	column uf
+		dataType: string
+		lineageTag: db7df40d-cb56-4b77-b4f3-9069e893bf09
+		summarizeBy: none
+		sourceColumn: uf
+
+	column id_regiao
+		dataType: int64
+		isHidden
+		lineageTag: 0378bf5a-c194-42aa-a742-53822655c86e
+		sourceColumn: id_regiao
+
+	partition dim_cliente = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(PastaDados & "\dim_cliente.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"id_cliente", Int64.Type}, {"nome_cliente", type text}, {"segmento", type text}, {"cidade", type text}, {"uf", type text}, {"id_regiao", Int64.Type}}, "en-US")
+				in
+				    ChangedTypes
+

@@ -1,0 +1,2 @@
+expression PastaDados = "C:\PowerBI\VendasRentabilidade\dados" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 86dac0ca-05d5-4b30-be63-6e5a24d1d51a

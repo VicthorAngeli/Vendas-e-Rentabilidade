@@ -1,0 +1,22 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fato_vendas
+ref table dim_cliente
+ref table dim_produto
+ref table dim_vendedor
+ref table dim_regiao
+ref table dim_calendario
+ref table meta_mensal
+ref table dim_etapa_cascata
+ref table _Medidas
+
+ref cultureInfo pt-BR
+

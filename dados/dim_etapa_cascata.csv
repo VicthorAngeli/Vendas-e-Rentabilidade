@@ -1,0 +1,5 @@
+id_etapa,etapa,ordem
+1,Faturamento,1
+2,Descontos,2
+3,Custos,3
+4,Lucro,4

@@ -1,0 +1,94 @@
+table fato_vendas
+	lineageTag: 513f7424-a337-482b-a30b-b91f6e5d1736
+
+	column id_item_venda
+		dataType: int64
+		isHidden
+		lineageTag: e5f44a44-e3d8-4981-8103-532a5b273878
+		sourceColumn: id_item_venda
+
+	column id_pedido
+		dataType: string
+		lineageTag: 843982ec-128e-4d37-875f-762f3479b078
+		summarizeBy: none
+		sourceColumn: id_pedido
+
+	column data
+		dataType: dateTime
+		lineageTag: 3dd3121e-83b4-4dea-8588-1045cdb133d6
+		summarizeBy: none
+		sourceColumn: data
+
+	column id_cliente
+		dataType: int64
+		isHidden
+		lineageTag: 62d82d4c-e8ed-477f-a434-af1e3cf469fd
+		sourceColumn: id_cliente
+
+	column id_produto
+		dataType: int64
+		isHidden
+		lineageTag: 0a2714cb-504d-4df6-88b1-0a51bcd5f871
+		sourceColumn: id_produto
+
+	column id_vendedor
+		dataType: int64
+		isHidden
+		lineageTag: 099e81a6-fc08-423e-9320-264ae4eb39be
+		sourceColumn: id_vendedor
+
+	column id_regiao
+		dataType: int64
+		isHidden
+		lineageTag: e210a23b-fb1f-4921-8f74-1b0efd4fbe8b
+		sourceColumn: id_regiao
+
+	column quantidade
+		dataType: int64
+		lineageTag: fb78139c-38e2-439a-bda4-7db9a020ca2b
+		summarizeBy: none
+		sourceColumn: quantidade
+
+	column preco_unitario
+		dataType: double
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		lineageTag: 0953257c-9ea2-45cb-baae-d9cdcb4c47a0
+		summarizeBy: none
+		sourceColumn: preco_unitario
+
+	column desconto_pct
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b1c3de16-08ef-4f61-a588-fbfb02d06d89
+		summarizeBy: none
+		sourceColumn: desconto_pct
+
+	column custo_unitario
+		dataType: double
+		formatString: R$ #,##0.00; (R$ #,##0.00); R$ 0.00
+		lineageTag: 02088ce9-69cd-4ee6-b764-fba8ebf3330b
+		summarizeBy: none
+		sourceColumn: custo_unitario
+
+	column canal
+		dataType: string
+		lineageTag: 5f85174b-4be2-4697-b1c6-3ecdf9933b2b
+		summarizeBy: none
+		sourceColumn: canal
+
+	column status
+		dataType: string
+		lineageTag: 152fcaf7-b826-449c-b7ba-a0050b9e9e39
+		summarizeBy: none
+		sourceColumn: status
+
+	partition fato_vendas = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(PastaDados & "\fato_vendas.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"id_item_venda", Int64.Type}, {"id_pedido", type text}, {"data", type date}, {"id_cliente", Int64.Type}, {"id_produto", Int64.Type}, {"id_vendedor", Int64.Type}, {"id_regiao", Int64.Type}, {"quantidade", Int64.Type}, {"preco_unitario", type number}, {"desconto_pct", type number}, {"custo_unitario", type number}, {"canal", type text}, {"status", type text}}, "en-US")
+				in
+				    ChangedTypes
+

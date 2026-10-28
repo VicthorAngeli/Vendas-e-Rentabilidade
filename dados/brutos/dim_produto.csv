@@ -1,0 +1,241 @@
+id_produto,nome_produto,categoria,subcategoria,marca,preco_lista,custo_base
+1,Cuidados pessoais 001,Higiene,Cuidados pessoais,Casa Viva,162.82,119.55
+2,Mercearia 002,Alimentos,Mercearia,Serra Dourada,30.48,263.59
+3,Ração 003,Pet,Ração,Bom Vizinho,599.68,147.46
+4,Descartáveis 004,Bazar,Descartáveis,Ponto Certo,215.69,504.64
+5,Higiene oral 005,Higiene,Higiene oral,Brilho Real,339.06,163.92
+6,Lavanderia 006,Limpeza,Lavanderia,Serra Dourada,687.7,76.32
+7,Higiene oral 007,Higiene,Higiene oral,Vida Leve,465.98,337.49
+8,Higiene oral 008,Higiene,Higiene oral,Bom Vizinho,255.28,326.65
+9,Organização 009,Bazar,Organização,Brilho Real,584.74,576.86
+10,Descartáveis 010,Bazar,Descartáveis,PetMais,810.94,466.4
+11,Casa 011,Limpeza,Casa,Vida Leve,498.55,92.26
+12,Higiene oral 012,Higiene,Higiene oral,Brilho Real,251.05,125.48
+13,Bebidas 013,Alimentos,Bebidas,Serra Dourada,187.44,295.52
+14,Perfumaria 014,Higiene,Perfumaria,Casa Viva,205.07,361.18
+15,Desinfecção 015,Limpeza,Desinfecção,Ponto Certo,388.47,478.0
+16,Bebidas 016,Alimentos,Bebidas,Brilho Real,682.13,214.55
+17,Descartáveis 017,Bazar,Descartáveis,PetMais,567.0,405.89
+18,Organização 018,Bazar,Organização,Vida Leve,407.06,318.87
+19,Ração 019,Pet,Ração,Bom Vizinho,102.5,141.48
+20,Organização 020,Bazar,Organização,Vale Verde,36.05,106.31
+21,Bebidas 021,Alimentos,Bebidas,Brilho Real,118.71,48.98
+22,Cuidados pessoais 022,Higiene,Cuidados pessoais,Ponto Certo,474.44,486.99
+23,Lavanderia 023,Limpeza,Lavanderia,PetMais,299.59,467.46
+24,Perfumaria 024,Higiene,Perfumaria,Serra Dourada,630.9,317.72
+25,Lavanderia 025,Limpeza,Lavanderia,Brilho Real,435.81,262.67
+26,Perfumaria 026,Higiene,Perfumaria,Serra Dourada,176.36,205.9
+27,Lavanderia 027,Limpeza,Lavanderia,Casa Viva,343.23,296.41
+28,Ração 028,Pet,Ração,Casa Viva,527.02,387.59
+29,Casa 029,Limpeza,Casa,Bom Vizinho,16.88,203.93
+30,Acessórios 030,Pet,Acessórios,Casa Viva,208.71,408.13
+31,Higiene oral 031,Higiene,Higiene oral,Serra Dourada,218.29,348.71
+32,Higiene oral 032,Higiene,Higiene oral,Casa Viva,133.95,385.57
+33,Cuidados pessoais 033,Higiene,Cuidados pessoais,PetMais,142.19,491.77
+34,Descartáveis 034,Bazar,Descartáveis,Vale Verde,609.78,66.11
+35,Mercearia 035,Alimentos,Mercearia,Brilho Real,152.52,67.77
+36,Lavanderia 036,Limpeza,Lavanderia,Bom Vizinho,272.09,496.17
+37,Perfumaria 037,Higiene,Perfumaria,Casa Viva,648.62,201.71
+38,Congelados 038,Alimentos,Congelados,Vale Verde,523.81,101.06
+39,Utilidades 039,Bazar,Utilidades,Bom Vizinho,110.17,353.58
+40,Congelados 040,Alimentos,Congelados,Ponto Certo,393.64,110.97
+41,Utilidades 041,Bazar,Utilidades,PetMais,290.99,342.64
+42,Desinfecção 042,Limpeza,Desinfecção,Ponto Certo,45.65,387.41
+43,Acessórios 043,Pet,Acessórios,Casa Viva,754.89,16.26
+44,Congelados 044,Alimentos,Congelados,Casa Viva,390.93,485.86
+45,Desinfecção 045,Limpeza,Desinfecção,Vida Leve,799.76,545.6
+46,Descartáveis 046,Bazar,Descartáveis,PetMais,699.73,368.7
+47,Perfumaria 047,Higiene,Perfumaria,Vale Verde,384.38,603.91
+48,Mercearia 048,Alimentos,Mercearia,Serra Dourada,378.48,24.34
+49,Mercearia 049,Alimentos,Mercearia,Vale Verde,474.58,99.22
+50,Mercearia 050,Alimentos,Mercearia,Brilho Real,297.72,417.59
+51,Utilidades 051,Bazar,Utilidades,Vale Verde,27.98,23.42
+52,Bebidas 052,Alimentos,Bebidas,Bom Vizinho,746.89,478.01
+53,Congelados 053,Alimentos,Congelados,Serra Dourada,584.79,342.61
+54,Higiene oral 054,Higiene,Higiene oral,Vale Verde,579.51,592.69
+55,Perfumaria 055,Higiene,Perfumaria,PetMais,446.78,446.39
+56,Casa 056,Limpeza,Casa,Ponto Certo,476.67,527.78
+57,Bebidas 057,Alimentos,Bebidas,Vale Verde,414.14,494.01
+58,Lavanderia 058,Limpeza,Lavanderia,Casa Viva,818.06,554.37
+59,Casa 059,Limpeza,Casa,PetMais,693.57,617.47
+60,Cuidados pessoais 060,Higiene,Cuidados pessoais,Bom Vizinho,714.49,245.74
+61,Cuidados pessoais 061,Higiene,Cuidados pessoais,Casa Viva,387.62,35.21
+62,Congelados 062,Alimentos,Congelados,PetMais,566.66,120.44
+63,Ração 063,Pet,Ração,Casa Viva,298.2,328.12
+64,Ração 064,Pet,Ração,Ponto Certo,268.5,436.6
+65,Descartáveis 065,Bazar,Descartáveis,Serra Dourada,819.72,269.05
+66,Mercearia 066,Alimentos,Mercearia,Vale Verde,631.21,322.48
+67,Higiene pet 067,Pet,Higiene pet,PetMais,376.57,120.33
+68,Cuidados pessoais 068,Higiene,Cuidados pessoais,Vida Leve,136.29,341.22
+69,Acessórios 069,Pet,Acessórios,Vale Verde,355.96,41.88
+70,Organização 070,Bazar,Organização,Vale Verde,391.87,153.26
+71,Utilidades 071,Bazar,Utilidades,Casa Viva,761.32,48.65
+72,Ração 072,Pet,Ração,Brilho Real,333.11,482.4
+73,Higiene pet 073,Pet,Higiene pet,Serra Dourada,768.97,68.11
+74,Desinfecção 074,Limpeza,Desinfecção,Serra Dourada,648.31,542.05
+75,Desinfecção 075,Limpeza,Desinfecção,Ponto Certo,544.42,433.54
+76,Acessórios 076,Pet,Acessórios,PetMais,754.73,378.45
+77,Acessórios 077,Pet,Acessórios,PetMais,294.86,253.02
+78,Cuidados pessoais 078,Higiene,Cuidados pessoais,Bom Vizinho,277.19,110.25
+79,Congelados 079,Alimentos,Congelados,Serra Dourada,280.79,524.89
+80,Acessórios 080,Pet,Acessórios,Serra Dourada,419.41,386.97
+81,Lavanderia 081,Limpeza,Lavanderia,Bom Vizinho,817.1,278.44
+82,Lavanderia 082,Limpeza,Lavanderia,Vale Verde,544.78,594.7
+83,Perfumaria 083,Higiene,Perfumaria,Casa Viva,316.4,104.77
+84,Desinfecção 084,Limpeza,Desinfecção,Ponto Certo,80.39,89.87
+85,Utilidades 085,Bazar,Utilidades,Vale Verde,128.62,253.83
+86,Mercearia 086,Alimentos,Mercearia,PetMais,675.14,143.39
+87,Utilidades 087,Bazar,Utilidades,Brilho Real,293.92,259.08
+88,Congelados 088,Alimentos,Congelados,Bom Vizinho,320.34,356.04
+89,Desinfecção 089,Limpeza,Desinfecção,Vida Leve,745.4,13.1
+90,Bebidas 090,Alimentos,Bebidas,Vida Leve,20.08,601.85
+91,Descartáveis 091,Bazar,Descartáveis,Vale Verde,746.53,128.09
+92,Mercearia 092,Alimentos,Mercearia,Ponto Certo,238.47,153.67
+93,Lavanderia 093,Limpeza,Lavanderia,Serra Dourada,481.71,610.33
+94,Bebidas 094,Alimentos,Bebidas,Casa Viva,816.07,54.34
+95,Lavanderia 095,Limpeza,Lavanderia,PetMais,419.57,397.8
+96,Organização 096,Bazar,Organização,Brilho Real,14.98,597.67
+97,Higiene pet 097,Pet,Higiene pet,Vida Leve,17.43,336.54
+98,Ração 098,Pet,Ração,PetMais,19.41,337.42
+99,Cuidados pessoais 099,Higiene,Cuidados pessoais,Serra Dourada,452.96,479.29
+100,Organização 100,Bazar,Organização,Vale Verde,317.53,546.04
+101,Cuidados pessoais 101,Higiene,Cuidados pessoais,Bom Vizinho,252.3,438.78
+102,Perfumaria 102,Higiene,Perfumaria,PetMais,560.74,554.74
+103,Higiene pet 103,Pet,Higiene pet,Ponto Certo,172.1,451.64
+104,Desinfecção 104,Limpeza,Desinfecção,Vale Verde,318.83,17.29
+105,Acessórios 105,Pet,Acessórios,Brilho Real,355.5,220.44
+106,Ração 106,Pet,Ração,Serra Dourada,348.49,455.9
+107,Organização 107,Bazar,Organização,PetMais,752.0,110.44
+108,Congelados 108,Alimentos,Congelados,Vida Leve,177.33,60.28
+109,Ração 109,Pet,Ração,Casa Viva,315.06,376.24
+110,Descartáveis 110,Bazar,Descartáveis,Serra Dourada,327.95,52.89
+111,Higiene pet 111,Pet,Higiene pet,Ponto Certo,125.2,109.57
+112,Acessórios 112,Pet,Acessórios,Serra Dourada,515.18,294.13
+113,Congelados 113,Alimentos,Congelados,Casa Viva,96.23,264.82
+114,Perfumaria 114,Higiene,Perfumaria,Ponto Certo,11.08,322.02
+115,Cuidados pessoais 115,Higiene,Cuidados pessoais,Brilho Real,204.38,546.34
+116,Casa 116,Limpeza,Casa,PetMais,610.16,520.68
+117,Casa 117,Limpeza,Casa,Brilho Real,183.5,528.98
+118,Lavanderia 118,Limpeza,Lavanderia,Ponto Certo,699.85,53.38
+119,Mercearia 119,Alimentos,Mercearia,Vale Verde,450.59,560.03
+120,Perfumaria 120,Higiene,Perfumaria,Vale Verde,39.6,195.57
+121,Lavanderia 121,Limpeza,Lavanderia,Bom Vizinho,440.16,602.03
+122,Organização 122,Bazar,Organização,Serra Dourada,591.32,255.2
+123,Descartáveis 123,Bazar,Descartáveis,Bom Vizinho,229.13,66.09
+124,Descartáveis 124,Bazar,Descartáveis,Vale Verde,423.41,496.31
+125,Lavanderia 125,Limpeza,Lavanderia,Vale Verde,514.5,286.66
+126,Bebidas 126,Alimentos,Bebidas,Vida Leve,457.71,370.0
+127,Cuidados pessoais 127,Higiene,Cuidados pessoais,PetMais,318.77,431.96
+128,Congelados 128,Alimentos,Congelados,Ponto Certo,206.82,543.43
+129,Acessórios 129,Pet,Acessórios,Vale Verde,526.33,239.94
+130,Descartáveis 130,Bazar,Descartáveis,Casa Viva,812.04,64.75
+131,Bebidas 131,Alimentos,Bebidas,Vida Leve,294.98,511.72
+132,Desinfecção 132,Limpeza,Desinfecção,Serra Dourada,60.39,575.98
+133,Ração 133,Pet,Ração,Brilho Real,758.69,187.06
+134,Cuidados pessoais 134,Higiene,Cuidados pessoais,Brilho Real,244.93,178.59
+135,Acessórios 135,Pet,Acessórios,Casa Viva,670.82,302.76
+136,Casa 136,Limpeza,Casa,Bom Vizinho,763.02,83.81
+137,Higiene pet 137,Pet,Higiene pet,Vida Leve,73.23,435.4
+138,Lavanderia 138,Limpeza,Lavanderia,Casa Viva,368.14,433.68
+139,Bebidas 139,Alimentos,Bebidas,Serra Dourada,664.45,261.76
+140,Organização 140,Bazar,Organização,Casa Viva,524.15,110.32
+141,Organização 141,Bazar,Organização,Vale Verde,242.59,253.15
+142,Lavanderia 142,Limpeza,Lavanderia,Brilho Real,345.95,570.55
+143,Perfumaria 143,Higiene,Perfumaria,Brilho Real,619.03,406.19
+144,Cuidados pessoais 144,Higiene,Cuidados pessoais,Vida Leve,264.33,412.57
+145,Utilidades 145,Bazar,Utilidades,Casa Viva,113.92,183.81
+146,Cuidados pessoais 146,Higiene,Cuidados pessoais,Casa Viva,384.86,4.64
+147,Organização 147,Bazar,Organização,Bom Vizinho,27.23,387.97
+148,Descartáveis 148,Bazar,Descartáveis,Ponto Certo,152.29,451.77
+149,Mercearia 149,Alimentos,Mercearia,Serra Dourada,244.87,174.67
+150,Higiene pet 150,Pet,Higiene pet,Serra Dourada,504.37,415.22
+151,Higiene oral 151,Higiene,Higiene oral,Vale Verde,752.74,301.31
+152,Acessórios 152,Pet,Acessórios,Serra Dourada,87.89,398.68
+153,Bebidas 153,Alimentos,Bebidas,PetMais,46.99,49.48
+154,Ração 154,Pet,Ração,Ponto Certo,324.38,83.83
+155,Acessórios 155,Pet,Acessórios,Bom Vizinho,492.32,99.91
+156,Higiene oral 156,Higiene,Higiene oral,Bom Vizinho,413.83,430.17
+157,Mercearia 157,Alimentos,Mercearia,Vida Leve,320.71,359.25
+158,Ração 158,Pet,Ração,PetMais,34.8,51.6
+159,Ração 159,Pet,Ração,PetMais,759.77,173.11
+160,Organização 160,Bazar,Organização,Vida Leve,316.12,17.13
+161,Higiene pet 161,Pet,Higiene pet,Casa Viva,256.92,157.58
+162,Higiene oral 162,Higiene,Higiene oral,Ponto Certo,184.78,576.22
+163,Lavanderia 163,Limpeza,Lavanderia,Brilho Real,470.12,553.16
+164,Utilidades 164,Bazar,Utilidades,Casa Viva,713.84,233.4
+165,Utilidades 165,Bazar,Utilidades,PetMais,141.67,227.1
+166,Lavanderia 166,Limpeza,Lavanderia,Vida Leve,285.24,290.7
+167,Lavanderia 167,Limpeza,Lavanderia,Casa Viva,764.98,44.5
+168,Higiene pet 168,Pet,Higiene pet,Vida Leve,804.63,168.53
+169,Congelados 169,Alimentos,Congelados,Brilho Real,603.15,204.99
+170,Higiene pet 170,Pet,Higiene pet,PetMais,652.89,309.06
+171,Perfumaria 171,Higiene,Perfumaria,Bom Vizinho,781.85,400.22
+172,Acessórios 172,Pet,Acessórios,Casa Viva,28.06,553.15
+173,Mercearia 173,Alimentos,Mercearia,Casa Viva,712.42,480.11
+174,Higiene pet 174,Pet,Higiene pet,Bom Vizinho,586.1,464.05
+175,Organização 175,Bazar,Organização,Serra Dourada,505.54,288.98
+176,Higiene pet 176,Pet,Higiene pet,Bom Vizinho,571.19,478.73
+177,Desinfecção 177,Limpeza,Desinfecção,Brilho Real,738.85,99.99
+178,Higiene oral 178,Higiene,Higiene oral,Casa Viva,587.48,392.6
+179,Organização 179,Bazar,Organização,Casa Viva,483.83,480.29
+180,Mercearia 180,Alimentos,Mercearia,Ponto Certo,688.03,122.11
+181,Acessórios 181,Pet,Acessórios,Brilho Real,602.07,47.23
+182,Bebidas 182,Alimentos,Bebidas,PetMais,136.03,308.98
+183,Bebidas 183,Alimentos,Bebidas,PetMais,183.81,466.22
+184,Bebidas 184,Alimentos,Bebidas,Ponto Certo,34.69,520.25
+185,Higiene oral 185,Higiene,Higiene oral,Casa Viva,391.15,230.39
+186,Acessórios 186,Pet,Acessórios,Vida Leve,729.06,450.22
+187,Mercearia 187,Alimentos,Mercearia,Brilho Real,503.85,520.99
+188,Cuidados pessoais 188,Higiene,Cuidados pessoais,Brilho Real,325.18,363.68
+189,Higiene pet 189,Pet,Higiene pet,Casa Viva,284.22,619.22
+190,Higiene oral 190,Higiene,Higiene oral,PetMais,259.89,147.75
+191,Acessórios 191,Pet,Acessórios,PetMais,114.55,346.61
+192,Utilidades 192,Bazar,Utilidades,PetMais,526.0,514.29
+193,Acessórios 193,Pet,Acessórios,Bom Vizinho,281.14,310.01
+194,Higiene pet 194,Pet,Higiene pet,Bom Vizinho,122.88,481.25
+195,Organização 195,Bazar,Organização,Casa Viva,393.49,108.5
+196,Higiene pet 196,Pet,Higiene pet,PetMais,729.66,153.75
+197,Higiene pet 197,Pet,Higiene pet,Ponto Certo,144.89,613.52
+198,Perfumaria 198,Higiene,Perfumaria,Casa Viva,649.82,116.77
+199,Congelados 199,Alimentos,Congelados,Ponto Certo,668.23,162.76
+200,Acessórios 200,Pet,Acessórios,Brilho Real,113.61,470.58
+201,Utilidades 201,Bazar,Utilidades,PetMais,815.58,538.55
+202,Higiene oral 202,Higiene,Higiene oral,Serra Dourada,759.47,310.99
+203,Higiene oral 203,Higiene,Higiene oral,Bom Vizinho,528.51,442.31
+204,Cuidados pessoais 204,Higiene,Cuidados pessoais,Bom Vizinho,706.32,590.96
+205,Utilidades 205,Bazar,Utilidades,Bom Vizinho,348.88,120.43
+206,Higiene oral 206,Higiene,Higiene oral,Serra Dourada,665.44,523.92
+207,Ração 207,Pet,Ração,Bom Vizinho,452.43,488.25
+208,Cuidados pessoais 208,Higiene,Cuidados pessoais,Brilho Real,392.87,262.03
+209,Organização 209,Bazar,Organização,Bom Vizinho,472.24,162.28
+210,Lavanderia 210,Limpeza,Lavanderia,PetMais,603.36,430.87
+211,Higiene pet 211,Pet,Higiene pet,Serra Dourada,508.51,533.88
+212,Acessórios 212,Pet,Acessórios,Vale Verde,236.01,56.15
+213,Desinfecção 213,Limpeza,Desinfecção,Ponto Certo,783.95,354.45
+214,Perfumaria 214,Higiene,Perfumaria,Vale Verde,435.96,403.49
+215,Desinfecção 215,Limpeza,Desinfecção,Vale Verde,329.38,121.48
+216,Organização 216,Bazar,Organização,Vale Verde,158.78,152.02
+217,Organização 217,Bazar,Organização,Bom Vizinho,422.07,414.14
+218,Congelados 218,Alimentos,Congelados,Serra Dourada,96.5,303.9
+219,Bebidas 219,Alimentos,Bebidas,Vida Leve,574.41,158.21
+220,Lavanderia 220,Limpeza,Lavanderia,Casa Viva,67.1,564.78
+221,Casa 221,Limpeza,Casa,Casa Viva,450.83,153.06
+222,Bebidas 222,Alimentos,Bebidas,Serra Dourada,100.11,254.66
+223,Higiene pet 223,Pet,Higiene pet,Ponto Certo,817.58,496.54
+224,Higiene oral 224,Higiene,Higiene oral,Casa Viva,492.79,178.41
+225,Cuidados pessoais 225,Higiene,Cuidados pessoais,Casa Viva,210.39,496.31
+226,Congelados 226,Alimentos,Congelados,Vale Verde,408.29,142.73
+227,Higiene oral 227,Higiene,Higiene oral,PetMais,300.16,518.2
+228,Utilidades 228,Bazar,Utilidades,Casa Viva,573.58,261.44
+229,Higiene oral 229,Higiene,Higiene oral,Vida Leve,491.2,459.66
+230,Organização 230,Bazar,Organização,Vale Verde,484.32,181.89
+231,Mercearia 231,Alimentos,Mercearia,PetMais,507.44,175.31
+232,Congelados 232,Alimentos,Congelados,PetMais,90.12,90.13
+233,Higiene pet 233,Pet,Higiene pet,Vida Leve,450.71,142.61
+234,Perfumaria 234,Higiene,Perfumaria,Serra Dourada,428.62,128.25
+235,Perfumaria 235,Higiene,Perfumaria,Bom Vizinho,699.61,174.48
+236,Congelados 236,Alimentos,Congelados,Bom Vizinho,47.12,117.36
+237,Higiene oral 237,Higiene,Higiene oral,Ponto Certo,464.92,553.13
+238,Congelados 238,Alimentos,Congelados,Casa Viva,208.56,74.73
+239,Higiene pet 239,Pet,Higiene pet,Vida Leve,490.72,576.75
+240,Higiene oral 240,Higiene,Higiene oral,Bom Vizinho,132.8,223.27

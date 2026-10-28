@@ -1,0 +1,96 @@
+table dim_calendario
+	lineageTag: 575dae06-2ef5-40ff-897f-9b202672ba66
+
+	column data
+		dataType: dateTime
+		lineageTag: 22d90e4d-bff3-4225-9fbb-4703cf914e3e
+		summarizeBy: none
+		sourceColumn: data
+
+	column ano
+		dataType: int64
+		lineageTag: f558ffbe-6a50-44cf-be97-7c09ce8a9281
+		summarizeBy: none
+		sourceColumn: ano
+
+	column trimestre
+		dataType: string
+		lineageTag: 54634d3e-72eb-43ee-9391-5737731a461a
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column mes
+		dataType: int64
+		lineageTag: 7ed5a4aa-f116-4a0a-acd4-6097b1f1b2b4
+		summarizeBy: none
+		sourceColumn: mes
+
+	column nome_mes
+		dataType: string
+		lineageTag: 011482f2-93de-40b8-9aaf-155ecd50d9a8
+		summarizeBy: none
+		sourceColumn: nome_mes
+		sortByColumn: mes
+
+	column ano_mes
+		dataType: string
+		lineageTag: b24e99c6-707a-49c6-ba9f-0f426ef08b0b
+		summarizeBy: none
+		sourceColumn: ano_mes
+
+	column ano_mes_num
+		dataType: int64
+		isHidden
+		lineageTag: 60c0d020-9c6f-4340-8776-a938eb408304
+		sourceColumn: ano_mes_num
+
+	column dia
+		dataType: int64
+		lineageTag: 2101b367-7d1f-4037-b58f-2937f602781f
+		summarizeBy: none
+		sourceColumn: dia
+
+	column dia_semana
+		dataType: string
+		lineageTag: 9d5116c2-b767-4327-b2ad-670e5785f01f
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+	column dia_semana_num
+		dataType: int64
+		isHidden
+		lineageTag: fa16ba23-b084-408b-812f-eb62a69d0b68
+		sourceColumn: dia_semana_num
+
+	column eh_fim_de_semana
+		dataType: boolean
+		lineageTag: a78641e3-ffda-42b2-a69c-a17507494ecb
+		summarizeBy: none
+		sourceColumn: eh_fim_de_semana
+
+	column eh_dia_util
+		dataType: boolean
+		lineageTag: 5583b81b-39b5-454d-98c3-2d932bc25dc1
+		summarizeBy: none
+		sourceColumn: eh_dia_util
+
+	column eh_feriado_fixo
+		dataType: boolean
+		lineageTag: 4b88b126-bacf-4db6-805f-462bd852a513
+		summarizeBy: none
+		sourceColumn: eh_feriado_fixo
+
+	partition dim_calendario = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(PastaDados & "\dim_calendario.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"data", type date}, {"ano", Int64.Type}, {"trimestre", type text}, {"mes", Int64.Type}, {"nome_mes", type text}, {"ano_mes", type text}, {"ano_mes_num", Int64.Type}, {"dia", Int64.Type}, {"dia_semana", type text}, {"dia_semana_num", Int64.Type}, {"eh_fim_de_semana", type logical}, {"eh_dia_util", type logical}, {"eh_feriado_fixo", type logical}}, "en-US")
+				in
+				    ChangedTypes
+
+	annotation isDateTable = true
+
+	annotation dateColumnName = data
+
